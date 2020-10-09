@@ -7,7 +7,7 @@ var config = require('./config.json');
 
 client.on("ready", () => {
 
-  client.user.setActivity("c1?help | Cloner.xyz", {
+  client.user.setActivity(`${config.prefix}help | Cloner.xyz`, {
       type: "STREAMING",
       url: "https://www.twitch.tv/niroxy"
   });
