@@ -7,13 +7,14 @@ var config = require('./config.json');
 
 client.on("ready", () => {
 
-  client.user.setActivity("c?help | Cloner.xyz", {
+  client.user.setActivity("c1?help | Cloner.xyz", {
       type: "STREAMING",
       url: "https://www.twitch.tv/niroxy"
   });
 
   setInterval(async function() {
     client.channels.cache.get('757295408425992236').setName("Registered : " + await Functions.usersCount());
+    client.channels.cache.get('763424821929181254').setName("Backups : " + await Functions.backupCount());
   }, 120000);
 });
 

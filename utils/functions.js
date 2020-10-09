@@ -28,6 +28,7 @@ exports.usersCount = () => {
     request.get({
       url: config.url + "api/users/count"
     }, function(error, response, body) {
+      console.log(body);
       return resolve(body);
     });
   })

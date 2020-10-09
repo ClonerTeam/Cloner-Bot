@@ -12,11 +12,11 @@ class Commands {
     var embed = new Discord.MessageEmbed()
     .setColor('#642BF7')
     .setDescription(`**Commands**\n
-    **c?help**\n
-    **c?stats**   Stats of the bot\n
-    **c?link**    Link your cloner.tech account\n
-    **c?backup**  Load private backups of your linked account\n
-    **c?info**  Informations of bot (Website, support ...)
+    **${config.prefix}help**\n
+    **${config.prefix}stats**   Stats of the bot\n
+    **${config.prefix}link**    Link your cloner.tech account\n
+    **${config.prefix}backup**  Load private backups of your linked account\n
+    **${config.prefix}info**  Informations of bot (Website, support ...)
     `)
     return msg.channel.send(embed);
   }
@@ -55,6 +55,7 @@ class Commands {
       .addField('Total Channels', `${client.channels.cache.size}`, true)
       .addField('Total Servers', Math.ceil(client.guilds.cache.size), true)
       .addField('Total Users (Website)', `${await Functions.usersCount()}`, true)
+      .addField('Total Backups (Website)', `${await Functions.backupCount()}`, true)
       .setTimestamp()
       .setFooter(client.user.username, client.user.avatarURL);
     msg.channel.send({embed}) 
@@ -68,10 +69,10 @@ class Commands {
       if(!args[0]) {
         var embed = new Discord.MessageEmbed()
           .setColor('#642BF7')
-          .setDescription(`**c?backup**\n\nLoad private backups of your linked account\n\n**Commands**\n
-          **c?backup create**          Create a backup\n
-          **c?backup load**          Load a backup\n
-          **c?backup list**          Get a list of your backups`)
+          .setDescription(`**${config.prefix}backup**\n\nLoad private backups of your linked account\n\n**Commands**\n
+          **${config.prefix}backup create**          Create a backup\n
+          **${config.prefix}backup load**          Load a backup\n
+          **${config.prefix}backup list**          Get a list of your backups`)
         return msg.channel.send(embed);
       }
       
@@ -168,7 +169,7 @@ class Commands {
     } else {
       var embed = new Discord.MessageEmbed()
         .setColor('#642BF7')
-        .setDescription('You must link your account !\nTo link your account : c?link')
+        .setDescription(`You must link your account !\nTo link your account : ${config.prefix}link`)
       return msg.channel.send(embed);
     }
     
