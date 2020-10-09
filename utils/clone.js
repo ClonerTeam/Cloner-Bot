@@ -2,6 +2,7 @@ var Discord = require('discord.js');
 var { Permissions, Collection } = require('discord.js');
 var { validateBitrate, validateUserLimit } = require('./functions');
 var Account = require('./account');
+var config = require('../config.json');
 
 class Clone {
 
@@ -28,7 +29,7 @@ class Clone {
     if(!args[1]) {
       var embed = new Discord.MessageEmbed()
       .setColor('#642BF7')
-      .setDescription("You forgot to define the argument backup_id. Use c?backup load <backup_id>.")
+      .setDescription(`You forgot to define the argument backup_id. Use ${config.prefix}backup load <backup_id>.`)
 
       return message.channel.send(embed);
     }
